@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Lyrics API</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+    <header role="header"><h1>Song Lyrics</h1></header>
+    <main role="main">
+      <form action="#" class="js-search-form">
+        <span>Artist:</span>
+        <input type="text" class="js-query-artist" placeholder="Queen">
+        <span>Song title:</span>
+        <input type="text" class="js-query-title" placeholder="Under Pressure">
+        <button type="submit">Search</button>
+    </form>
+    </main>
+
+    <section role="region">
+    <div class="js-search-results" aria-live="assertive" hidden>
+   
+    </div>
+    </section>
+
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+</html>
