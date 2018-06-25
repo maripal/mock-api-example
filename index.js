@@ -5,15 +5,33 @@ and display the song lyrics. You should make requests to this API: https://lyric
 Also make any necessary adjustments to make this app accessible. */
 
 function getDataFromApi(artist, title, callback) {
-  //your code here
+  const lyricsUrl = `https://api.lyrics.ovh/v1/${artist}/${title}`;
+
+  const query = {
+  	artist: `${artist}`,
+  	title: `${title}`
+  }
+  $.getJSON(lyricsUrl, query, displaySearchData)
 }
 
 function displaySearchData(data) {
-  //your code here
+  let results = JSON.stringify(data.lyrics).replace(/\\n/g, "<br>");
+  $('.js-search-results').html(`<p>${results}</p>`);
 }
 
 function watchSubmit() {
-  //your code here
+  $('.js-search-form').submit(function(event) {
+  	event.preventDefault();
+
+  	let queryArtistTarget = $(event.currentTarget).find('.js-query-artist');
+  	let artistSearch = queryArtistTarget.val();
+  	queryArtistTarget.val('');
+  	let queryTitleTarget = $(event.currentTarget).find('.js-query-title');
+  	let titleSearch = queryTitleTarget.val();
+  	queryTitleTarget.val('');
+  	$('.js-search-results').prop('hidden', false);
+  	getDataFromApi(artistSearch, titleSearch, displaySearchData);
+  })
 }
 
 $(watchSubmit);
