@@ -1,3 +1,19 @@
+body {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+header {
+	text-align: center;
+}
+
+.js-search-form {
+	margin-left: auto;
+	margin-right: auto;
+	width: 300px;
+}
+
 input {
   display: block;
   margin: 10px;
